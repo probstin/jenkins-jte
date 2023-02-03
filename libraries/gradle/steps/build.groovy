@@ -1,27 +1,16 @@
 void call(){
-    podTemplate(yaml: '''
-        apiVersion: v1
-        kind: Pod
-        spec:
-            containers:
-            - name: gradle
-              image: gradle:jdk17-alpine
-              command:
-              - sleep
-              args:
-              - 99d
-    ''') { 
+    String imageVersion = config.image_version ?: "gradle:jdk17-alpine"
     
-        node(POD_LABEL) {
-            stage('Gradle:Build') {
-            println "build from the gradle library" 
-
+    podTemplate(containers: [
+        containerTemplate(name: 'gradle', image: imageVersion, command: 'sleep', args: '99d')
+    ])
+    
+    node(POD_LABEL) {
+        stage('Gradle:Build') {
             container('gradle') {
               sh 'gradle -version'
             }
-
-            }
         }
-        
     }
+        
 }
