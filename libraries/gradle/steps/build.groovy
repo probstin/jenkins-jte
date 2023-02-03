@@ -10,5 +10,18 @@ void call(){
               - sleep
               args:
               - 99d
-    ''') { }
+    ''') { 
+    
+        node(POD_LABEL) {
+            stage('Gradle:Build') {
+            println "build from the gradle library" 
+
+            container('gradle') {
+              sh 'gradle -version'
+            }
+
+            }
+        }
+        
+    }
 }
