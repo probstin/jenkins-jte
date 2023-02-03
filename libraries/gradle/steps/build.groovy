@@ -1,4 +1,4 @@
-void call(){
+void call() {
     
     String image = "gradle:" + config.image_tag ?: "jdk17-alpine"
     
