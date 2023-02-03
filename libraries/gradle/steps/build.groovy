@@ -3,14 +3,14 @@ void call(){
     
     podTemplate(containers: [
         containerTemplate(name: 'gradle', image: imageVersion, command: 'sleep', args: '99d')
-    ])
-    
-    node(POD_LABEL) {
-        stage('Gradle:Build') {
-            container('gradle') {
-              sh 'gradle -version'
+    ]) {
+        node(POD_LABEL) {
+            stage('Gradle:Build') {
+                container('gradle') {
+                  sh 'gradle -version'
+                }
             }
-        }
+        }  
     }
         
 }
