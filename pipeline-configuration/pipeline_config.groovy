@@ -1,4 +1,3 @@
 libraries{
-    merge = true
     sonarqube
 }
