@@ -9,7 +9,7 @@ void call() {
             stage('Gradle:Build') {
                 container('gradle') {
                     sh 'gradle -version'
-                    sh 'ls /home/jenkins/agent'
+                    sh 'ls /home/jenkins/agent/workspace'
                 }
             }
         }  
