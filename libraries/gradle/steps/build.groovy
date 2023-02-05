@@ -6,7 +6,8 @@ void call() {
         node(POD_LABEL) {
             stage('Gradle:Build') {
                 container('gradle') {
-                  sh 'gradle -version'
+                    sh 'gradle -version'
+                    sh 'gradle build'
                 }
             }
         }  
