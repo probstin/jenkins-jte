@@ -7,7 +7,7 @@ void call() {
             stage('Gradle:Build') {
                 container('gradle') {
                     sh 'gradle -version'
-                    sh 'gradle build'
+                    sh 'ls -altr'
                 }
             }
         }  
