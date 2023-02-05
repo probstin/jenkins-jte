@@ -2,6 +2,10 @@ void call() {
     
     String imageTag = config.image_tag ?: "jdk17-alpine"
     
+    stage('Test') {
+        sh 'ls -altr'
+    }
+    
     podTemplate(
         containers: [containerTemplate(name: 'gradle', image: "gradle:${imageTag}", command: 'sleep', args: '99d')],
     ) {
